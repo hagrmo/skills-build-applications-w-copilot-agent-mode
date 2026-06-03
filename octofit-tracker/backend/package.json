@@ -13,7 +13,7 @@
     "typescript",
     "mongoose"
   ],
-  "author": "",
+  "author": "OctoFit",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
