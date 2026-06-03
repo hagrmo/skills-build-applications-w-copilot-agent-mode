@@ -1,5 +1,6 @@
 /**
  * Seed the octofit_db database with test data
+ * Run with: npx tsx src/scripts/seed.ts
  */
 import mongoose from 'mongoose';
 import { connectDatabase, disconnectDatabase } from '../config/database';
