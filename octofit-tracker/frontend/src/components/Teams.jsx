@@ -4,7 +4,7 @@ export default function Teams() {
   return (
     <ResourcePage
       title="Teams"
-      description="Member groups and team creation timestamps from the collaboration tier."
+      description="Member groups and team creation timestamps from the collaboration tier. Codespaces endpoint format: https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/teams/."
       resource="teams"
       emptyMessage="No teams are available yet."
       fields={(team) => [

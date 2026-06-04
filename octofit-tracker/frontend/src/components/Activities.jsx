@@ -4,7 +4,7 @@ export default function Activities() {
   return (
     <ResourcePage
       title="Activities"
-      description="Logged workouts, owners, durations, and completion dates."
+      description="Logged workouts, owners, durations, and completion dates. Codespaces endpoint format: https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/."
       resource="activities"
       emptyMessage="No activities have been logged yet."
       fields={(activity) => [
