@@ -1,3 +1,4 @@
+import cors, { CorsOptions } from "cors";
 import express from "express";
 import { connectDatabase } from "./config/database";
 import usersRouter from "./routes/users";
@@ -13,7 +14,24 @@ const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
   : `http://localhost:${port}`;
+const allowedOrigins = ["http://localhost:5173", "http://127.0.0.1:5173"];
 
+if (codespaceName) {
+  allowedOrigins.push(`https://${codespaceName}-5173.app.github.dev`);
+}
+
+const corsOptions: CorsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+      return;
+    }
+
+    callback(new Error(`Origin ${origin} is not allowed by CORS.`));
+  },
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/health", (_req, res) => {
